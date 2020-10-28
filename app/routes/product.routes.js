@@ -1,15 +1,15 @@
 module.exports = (app) => {
-	const customers = require("../controllers/customer.controllers");
+	const products = require("../controllers/product.controllers");
 
-	//create mew customer
-	app.post("/customers", customers.create);
-	//get all customer
-	app.get("/customers", customers.findAll);
-	//get single customer
-	app.get("/customers/:customerID", customers.findOne);
+	//create mew product
+	app.post("/products", products.create);
+	//get all product
+	app.get("/products", products.findAll);
+	//get single product
+	app.get("/products/:productID", products.findOne);
 
-	//update single customer
-	app.put("/customers/:customerID", customers.update);
-
-	app.delete("/customers/:customerID", customers.delete);
+	//update single product
+	app.put("/products/:productID", products.update);
+	//delete single product
+	app.delete("/products/:productID", products.delete);
 };
