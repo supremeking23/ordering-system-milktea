@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Customer = require("../models/customer.model");
 
 // Create and Save a new Customer
@@ -14,6 +15,7 @@ exports.create = async (req, res) => {
 		city: req.body.city,
 		state: req.body.state,
 		zipcode: req.body.zipcode,
+		// _id: mongoose.Types.ObjectId(),
 		// first_name: "sample name",
 		// last_name: "sample last",
 		// email: "sample@email.com",
@@ -127,7 +129,7 @@ exports.delete = async (req, res) => {
 		}
 
 		res.send(data);
-	} catch (error) {
+	} catch (err) {
 		if (err.kind === "ObjectId" || err.name === "NotFound") {
 			return res.status(404).send({
 				message: "Customer not found with id " + req.params.customerID,

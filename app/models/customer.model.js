@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
 const CustomerSchema = mongoose.Schema({
+	// _id: {
+	// 	type: mongoose.Schema.Types.ObjectId,
+	// },
 	first_name: {
 		type: String,
 		required: true,

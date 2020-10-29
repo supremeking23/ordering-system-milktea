@@ -1,6 +1,4 @@
 module.exports = (app) => {
-	//EDIT mo to
-
 	const customers = require("../controllers/customer.controllers");
 
 	//create mew customer
