@@ -46,6 +46,8 @@ require("./app/routes/product.routes")(app);
 require("./app/routes/order.routes")(app);
 // Require Order routes
 require("./app/routes/orderDetail.routes")(app);
+// Require Feedback routes
+require("./app/routes/feedback.routes")(app);
 
 console.log(`date now ${Date.now}`);
 
