@@ -42,6 +42,13 @@ app.get("/", (req, res) => {
 require("./app/routes/customer.routes")(app);
 // Require Product routes
 require("./app/routes/product.routes")(app);
+// Require Order routes
+require("./app/routes/order.routes")(app);
+// Require Order routes
+require("./app/routes/orderDetail.routes")(app);
+
+console.log(`date now ${Date.now}`);
+
 // listen for requests
 app.listen(3000, () => {
 	console.log("Server is listening on port 3000");
