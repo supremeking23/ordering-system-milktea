@@ -4,11 +4,11 @@ module.exports = (app) => {
 	//create mew orderDetail
 	app.post("/orderDetail/:orderID", orderDetail.create);
 
-	//testing purpose
-	app.get("/orderDetail/", orderDetail.findAll);
+	//kahit wag na gamitin to
+	app.get("/orders/:orderID/", orderDetail.findAll);
 
-	// //update single customer
-	// app.put("/orders/:orderID", orders.update);
+	app.get("/orders/:orderID/:orderDetailID", orderDetail.findOne);
+	app.put("/orders/:orderID/:orderDetailID", orderDetail.update);
 
-	// app.delete("/orders/:orderID", orders.delete);
+	app.delete("/orders/:orderID/:orderDetailID", orderDetail.delete);
 };

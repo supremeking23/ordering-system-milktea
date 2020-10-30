@@ -50,7 +50,11 @@ exports.findOne = async (req, res) => {
 			.where("order", req.params.orderID)
 			.populate("product");
 
-		res.send({ mainOrderDetail: data, orderItemDetails: detail });
+		res.send({
+			mainOrderDetail: data,
+			orderItemDetails: detail,
+			orderItemCount: detail.length,
+		});
 	} catch (error) {
 		res.status(500).send({
 			message:
