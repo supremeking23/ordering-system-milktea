@@ -1,13 +1,14 @@
 module.exports = (app) => {
 	const orders = require("../controllers/order.controllers");
+	const auth = require("../controllers/authenticate.controllers");
 
-	app.post("/orders", orders.create);
+	app.post("/orders", auth.authenticateToken, orders.create);
 
-	app.get("/orders", orders.findAll);
+	app.get("/orders", auth.authenticateToken, orders.findAll);
 
-	app.get("/orders/:orderID", orders.findOne);
+	app.get("/orders/:orderID", auth.authenticateToken, orders.findOne);
 
-	app.put("/orders/:orderID", orders.update);
+	app.put("/orders/:orderID", auth.authenticateToken, orders.update);
 
-	app.delete("/orders/:orderID", orders.delete);
+	app.delete("/orders/:orderID", auth.authenticateToken, orders.delete);
 };

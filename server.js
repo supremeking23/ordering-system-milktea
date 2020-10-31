@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -49,7 +50,9 @@ require("./app/routes/orderDetail.routes")(app);
 // Require Feedback routes
 require("./app/routes/feedback.routes")(app);
 
-console.log(`date now ${Date.now}`);
+require("./app/routes/authenticate.routes")(app);
+
+// console.log(`date now ${Date.now}`);
 
 // listen for requests
 app.listen(3000, () => {

@@ -52,31 +52,56 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = async (req, res) => {
-	try {
-		const data = await Customer.find();
-		res.send(data);
-	} catch (error) {
-		res.status(500).send({
-			message:
-				error.message || "Some error occurred while creating customer data.",
-		});
+	if (req.user.name == "admin") {
+		try {
+			console.log(req.user.name);
+			const data = await Customer.find();
+			res.send(data);
+		} catch (error) {
+			res.status(500).send({
+				message:
+					error.message || "Some error occurred while creating customer data.",
+			});
+		}
+	} else {
+		res.status(403).send("Unauthorized user");
 	}
 };
 
 exports.findOne = async (req, res) => {
-	try {
-		const data = await Customer.findById(req.params.customerID);
-		if (!data) {
-			return res.status(404).send({
-				message: "record not found with id " + req.params.customerID,
+	if (req.user.name == "admin") {
+		try {
+			const data = await Customer.findById(req.params.customerID);
+			if (!data) {
+				return res.status(404).send({
+					message: "record not found with id " + req.params.customerID,
+				});
+			}
+			res.send(data);
+		} catch (error) {
+			res.status(500).send({
+				message:
+					error.message || "Some error occurred while creating customer data.",
 			});
 		}
-		res.send(data);
-	} catch (error) {
-		res.status(500).send({
-			message:
-				error.message || "Some error occurred while creating customer data.",
-		});
+	} else {
+		try {
+			const data = await Customer.findById(req.params.customerID).where(
+				"email",
+				req.user.name
+			);
+			if (!data) {
+				return res.status(401).send({
+					message: `Unauthorized user is trying to access this information`,
+				});
+			}
+			res.send(data);
+		} catch (error) {
+			res.status(500).send({
+				message:
+					error.message || "Some error occurred while creating customer data.",
+			});
+		}
 	}
 };
 
