@@ -52,7 +52,7 @@ require("./app/routes/feedback.routes")(app);
 
 require("./app/routes/authenticate.routes")(app);
 
-console.log(`date now ${Date.now}`);
+// console.log(`date now ${Date.now}`);
 
 // listen for requests
 app.listen(3000, () => {

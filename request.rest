@@ -6,7 +6,7 @@ POST http://localhost:3000/login/
 Content-Type:application/json
 
 {
-    "username":"Ivan"
+    "username":"admin"
 }
 
 
@@ -17,7 +17,7 @@ POST http://localhost:3000/token/
 Content-Type:application/json
 
 {
-    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSXZhbiIsImlhdCI6MTYwNDA4Njg2OH0.U8urUFAQnlWn3QWUYMVwbNKXuOKz2-Z-_YLW0ed1MQw"
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWF2aXNfMjNAZ21haWwuY29tIiwiaWF0IjoxNjA0MTUzNDk3fQ.bLvBcki7mOBYB-dkN1zPjS1nhttgFdtD4xynvWdzuso"
 }
 
 ###
