@@ -55,6 +55,12 @@ require("./app/routes/authenticate.routes")(app);
 // console.log(`date now ${Date.now}`);
 
 // listen for requests
-app.listen(3000, () => {
+let port = process.env.PORT;
+if (port == null || port == "") {
+	port = 3000;
+}
+//app.listen(port);
+
+app.listen(port, () => {
 	console.log("Server is listening on port 3000");
 });
